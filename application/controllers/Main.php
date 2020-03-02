@@ -20,7 +20,9 @@ class Main extends CI_Controller{
         $this->load->model('MainModel');
         
     }
-
+    public function index(){
+        echo "entra index";
+    }
     public function test(){
         echo "entra";
     }
