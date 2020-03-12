@@ -359,8 +359,7 @@ class MainModel extends CI_Model{
                 }
        
     }else{
-        print_r($data->result_array());
-        die;
+        
         $response['status']= false;
         $response['msj']= "El cliente ya existe";
 
