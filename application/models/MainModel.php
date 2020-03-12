@@ -326,7 +326,9 @@ class MainModel extends CI_Model{
             );
             $this->db->insert('Clientes', $arrayInsert);
             $data2 = $this->db->get_where('Clientes',array('identificacion'=> $identificacion),1);
-           
+            echo "entraaa";
+            print_r($data2);
+            die;
     
                 $id_cliente= $data2->row();  
                 $id_cliente= $id_cliente->id_cliente;
