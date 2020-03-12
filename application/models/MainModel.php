@@ -329,6 +329,8 @@ class MainModel extends CI_Model{
            
     
                 $id_cliente= $data->row();
+                print_r($id_cliente);
+                die;
                 
                 $id_cliente= $id_cliente->id_cliente;
                 
