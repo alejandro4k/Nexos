@@ -324,41 +324,44 @@ class MainModel extends CI_Model{
                 'telefono'=>$telefono,
                 'identificacion'=>$identificacion
             );
-            $this->db->insert('Clientes', $arrayInsert);
+            if($this->db->insert('Clientes', $arrayInsert)){
+
+                
+         
+                     $id_cliente= $data->row();
+                     print_r($id_cliente);
+                     die;
+                     
+                     $id_cliente= $id_cliente->id_cliente;
+                     
+                     /*
+                     $sql = "INSERT INTO cuentas (numero_cuenta,id_cliente,created,clave,activo,saldo) VALUES('$numeroCuenta','$id_cliente',now(),'$clave',false,0)";
+                     $this->db->query($sql);
+                     */
+                     $arrayInsertCliente = array(
+                         'numero_cuenta' => $numeroCuenta,
+                         'clave'=> $clave,
+                         'saldo'=>0,
+                         'activo'=>false,
+                         'id_cliente'=>$id_cliente,
+                         'created'=>date("Y/m/d")
+                     );
+                     $this->db->insert('Cuentas', $arrayInsertCliente);
+                     
+                     if($this->db->affected_rows()>0){
+                         
+                         
+                         
+                         $response['status']= true;
+                         
+                     }else{
+                         $response['status']= false;
+                         $response['msj']= "error al crear el cliente";
+                         
+                     }
+            }
+            
     
-           
-    
-                $id_cliente= $data->row();
-                print_r($id_cliente);
-                die;
-                
-                $id_cliente= $id_cliente->id_cliente;
-                
-                /*
-                $sql = "INSERT INTO cuentas (numero_cuenta,id_cliente,created,clave,activo,saldo) VALUES('$numeroCuenta','$id_cliente',now(),'$clave',false,0)";
-                $this->db->query($sql);
-                */
-                $arrayInsertCliente = array(
-                    'numero_cuenta' => $numeroCuenta,
-                    'clave'=> $clave,
-                    'saldo'=>0,
-                    'activo'=>false,
-                    'id_cliente'=>$id_cliente,
-                    'created'=>date("Y/m/d")
-                );
-                $this->db->insert('Cuentas', $arrayInsertCliente);
-                
-                if($this->db->affected_rows()>0){
-                    
-                    
-                    
-                    $response['status']= true;
-                    
-                }else{
-                    $response['status']= false;
-                    $response['msj']= "error al crear el cliente";
-                    
-                }
        
     }else{
         
