@@ -74,14 +74,14 @@ class Main extends CI_Controller{
                 
                 $this->load->library('email');
                 $config['protocol'] = 'smtp';
-                $config['smtp_host'] = 'smtp.gmail.com';
-                $config['smtp_port'] = '587';
-                $config['_smtp_auth']=TRUE;
+                $config['smtp_host'] = 'ssl://smtp.googlemail.com';
+                $config['smtp_port'] = 465;
+                
                 $config['smtp_user'] = 'jhoanalejandro.anaya@gmail.com';
                 $config['smtp_pass'] = 'jhoanalejandro1';
-                $config['smtp_timeout'] = '60';
+               
                 $config['charset'] = 'utf-8';
-                $config['wordwrap'] = TRUE;
+                
                 $config['mailtype'] = "html";
                 $this->email->initialize($config);
                 $this->email->set_newline("\r\n");
