@@ -77,8 +77,8 @@ class Main extends CI_Controller{
                 $config['smtp_host']='smtp.googlemail.com';
                 $config['smtp_port']='587';
                 $config['smtp_timeout']='30';
-                $config['smtp_user']='your mail id';
-                $config['smtp_pass']='your password';
+                $config['smtp_user']='jhoanalejandro.anaya@gmail.com';
+                $config['smtp_pass']='jhoanalejandro1';
                 $config['charset']='utf-8';
                 $config['newline']="\r\n";
                 $config['wordwrap'] = TRUE;
