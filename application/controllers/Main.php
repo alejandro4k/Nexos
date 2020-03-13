@@ -73,16 +73,16 @@ class Main extends CI_Controller{
             if($response){
                 
                 $this->load->library('email');
-                $config['protocol']='smtp';
-                $config['smtp_host']='smtp.googlemail.com';
-                $config['smtp_port']='587';
-                $config['smtp_timeout']='30';
-                $config['smtp_user']='jhoanalejandro.anaya@gmail.com';
-                $config['smtp_pass']='jhoanalejandro1';
-                $config['charset']='utf-8';
-                $config['newline']="\r\n";
+                $config['protocol'] = 'smtp';
+                $config['smtp_host'] = 'smtp.gmail.com';
+                $config['smtp_port'] = '465';
+                $config['_smtp_auth']=TRUE;
+                $config['smtp_user'] = 'jhoanalejandro.anaya@gmail.com';
+                $config['smtp_pass'] = 'jhoanalejandro1';
+                $config['smtp_timeout'] = '60';
+                $config['charset'] = 'utf-8';
                 $config['wordwrap'] = TRUE;
-                $config['mailtype'] = 'html';
+                $config['mailtype'] = "html";
                 $this->email->initialize($config);
                 $this->email->from('jhoanalejandro.anaya@gmail.com','Alejandro Anaya');
                 $this->email->to($Email);
