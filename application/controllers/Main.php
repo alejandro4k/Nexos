@@ -75,7 +75,7 @@ class Main extends CI_Controller{
                 $this->load->library('email');
                 $config['protocol']='smtp';
                 $config['smtp_host']='https://apinexos.herokuapp.com/';
-                $config['smtp_port']='465';
+                $config['smtp_port']='587';
                 $config['smtp_timeout']='30';
                 $config['smtp_user']='your mail id';
                 $config['smtp_pass']='your password';
