@@ -71,6 +71,7 @@ class Main extends CI_Controller{
         $clave = password_hash($this->input->post('clave'),PASSWORD_DEFAULT);
         $response =$this->MainModel->saveClient($nombre,$apellidos,$tipoDocumento,$direccion,$Telefono,$Email,$identificacion,$numeroCuenta,$clave);
             if($response){
+                echo "entra";
                 $this->load->library('email');
                 $config['mailType']= 'html';
                 $this->email->initialize($config);
