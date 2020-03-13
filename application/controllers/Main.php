@@ -74,7 +74,7 @@ class Main extends CI_Controller{
                 
                 $this->load->library('email');
                 $config['protocol']='smtp';
-                $config['smtp_host']='ssl://smtp.googlemail.com';
+                $config['smtp_host']='smtp.googlemail.com';
                 $config['smtp_port']='587';
                 $config['smtp_timeout']='30';
                 $config['smtp_user']='your mail id';
