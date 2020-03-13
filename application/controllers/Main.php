@@ -92,11 +92,6 @@ class Main extends CI_Controller{
                 $this->email->subject("Bienvenido");
                 $this->email->message("<p>Gracias por utilizar nuestros servicios tu numero de cuenta es:</p> <strong> $numeroCuenta </strong> y tu contraseña son tus <strong>ultimos 4 digitos de tu identificacion</strong>");
                 
-                if($this->email->send()){
-                    echo "envia correo";
-                }else{
-                    echo $this->email->print_debugger();
-                }
                 
             }
         
