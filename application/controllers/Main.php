@@ -76,12 +76,11 @@ class Main extends CI_Controller{
                 $config['protocol'] = 'smtp';
                 $config['smtp_host'] = 'smtp.googlemail.com';
                 $config['smtp_port'] = 587;
-                
                 $config['smtp_user'] = 'nexostest1@gmail.com';
                 $config['smtp_pass'] = 'nexos1234';
-               
-                $config['charset'] = 'utf-8';
-                
+                $config['smtp_timeout']='30';
+                $config['mailpath'] = '/usr/sbin/sendmail';
+                $config['charset'] = 'utf-8';             
                 $config['mailtype'] = "html";
                 $this->email->initialize($config);
                 $this->email->set_newline("\r\n");
