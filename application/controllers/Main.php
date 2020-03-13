@@ -74,6 +74,12 @@ class Main extends CI_Controller{
                 
                 $this->load->library('email');
                 $config['mailType']= 'html';
+                $config['protocol'] = 'sendmail';
+                $config['mailpath'] = '/usr/sbin/sendmail';
+                $config['charset'] = 'iso-8859-1';
+                $config['wordwrap'] = TRUE;
+                $config['smtp_port']    = '587';
+                $config['newline']    = "\r\n";
                 $this->email->initialize($config);
                 $this->email->from('jhoanalejandro.anaya@gmail.com','Alejandro Anaya');
                 $this->email->to($Email);
