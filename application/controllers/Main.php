@@ -71,7 +71,7 @@ class Main extends CI_Controller{
         $clave = password_hash($this->input->post('clave'),PASSWORD_DEFAULT);
         $response =$this->MainModel->saveClient($nombre,$apellidos,$tipoDocumento,$direccion,$Telefono,$Email,$identificacion,$numeroCuenta,$clave);
             if($response){
-                echo "entra";
+                
                 $this->load->library('email');
                 $config['mailType']= 'html';
                 $this->email->initialize($config);
@@ -79,7 +79,12 @@ class Main extends CI_Controller{
                 $this->email->to($Email);
                 $this->email->subject("Bienvenido");
                 $this->email->message("<p>Gracias por utilizar nuestros servicios tu numero de cuenta es:</p> <strong> $numeroCuenta </strong> y tu contraseña son tus <strong>ultimos 4 digitos de tu identificacion</strong>");
-                $this->email->send();
+                
+                if($this->email->send()){
+                    echo "envia correo";
+                }else{
+                    echo $this->email->print_debugger();
+                }
                 
             }
         
